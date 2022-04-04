@@ -1,5 +1,5 @@
 # grpc-server-go-client-rails
-- Client(Rails) --> Call API —> gRPC(Go)
+- gRPc Client(Rails) --> Call API —> gRPC Server(Go)
 
 ## Usage
 ```
