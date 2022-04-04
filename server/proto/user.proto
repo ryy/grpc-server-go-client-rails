@@ -1,0 +1,18 @@
+// protoc --go_out=. --go-grpc_out=require_unimplemented_servers=false:. ./proto/user.proto
+
+syntax = "proto3";
+
+package main;
+
+option go_package = "/pb";
+
+service User {
+  rpc GetUser (Empty) returns (UserResponse) {}
+}
+
+message Empty {
+}
+
+message UserResponse {
+  string name = 1;
+}

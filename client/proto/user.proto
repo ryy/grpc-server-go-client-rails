@@ -1,0 +1,18 @@
+// grpc_tools_ruby_protoc -I ./proto --ruby_out=lib --grpc_out=lib ./proto/user.proto
+
+syntax = "proto3";
+
+package main;
+
+option ruby_package = "Grpcs::Server";
+
+service User {
+  rpc GetUser (Empty) returns (UserResponse) {}
+}
+
+message Empty {
+}
+
+message UserResponse {
+  string name = 1;
+}

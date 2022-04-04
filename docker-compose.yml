@@ -1,0 +1,25 @@
+version: '3.7'  
+
+services:  
+  server:
+    build:
+      context: ./server/
+      dockerfile: Dockerfile
+    ports:  
+      - 50051:50051  
+    volumes:  
+      - ./server:/server
+    tty: true
+    stdin_open: true
+    command: go run cmd/api/main.go
+  client:
+    build:
+      context: ./client/
+      dockerfile: Dockerfile
+    ports:
+      - 3000:3000
+    volumes:
+      - ./client:/client
+    tty: true
+    stdin_open: true
+    command: sh -c "rm -f tmp/pids/server.pid && bundle exec rails s -b 0.0.0.0 -p 3000"
